@@ -1,5 +1,7 @@
 # WeatherCOT
 
+![WeatherCOT Example](https://raw.githubusercontent.com/Alphalynxjet/weatherCOT/main/weathercot.png)
+
 WeatherCOT is a Python script that retrieves current weather information from the Open-Meteo API and sends it as a Cursor-On-Target (CoT) message over TCP. This script can be useful for integrating real-time weather data into CoT-enabled systems or applications. 
 
 ## Features
