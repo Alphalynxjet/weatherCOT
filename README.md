@@ -6,7 +6,8 @@ WeatherCOT is a Python script that retrieves current weather information from th
 
 ## Features
 
-- Retrieves hourly weather data for a specific location using latitude and longitude coordinates.
+- Retrieves current weather data for a specific location using latitude and longitude coordinates.
+- Wind direction is shown using course arrow in ATAK
 - Sends the weather information as a CoT message over TCP.
 - Customizable location, API coordinates, and TCP server settings.
 
