@@ -53,5 +53,3 @@ This project is licensed under the MIT License. Feel free to modify and distribu
 ## Acknowledgments
 
 - This script utilizes the Open-Meteo API to retrieve weather data. Visit their website for more information: [Open-Meteo](https://open-meteo.com/)
-
-- BTW, this whole script and readme.md was made using ChatGPT
