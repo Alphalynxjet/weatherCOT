@@ -1,6 +1,6 @@
 # WeatherCOT
 
-WeatherCOT is a Python script that retrieves hourly weather information from the Open-Meteo API and sends it as a Cursor-On-Target (CoT) message over TCP. This script can be useful for integrating real-time weather data into CoT-enabled systems or applications.
+WeatherCOT is a Python script that retrieves current weather information from the Open-Meteo API and sends it as a Cursor-On-Target (CoT) message over TCP. This script can be useful for integrating real-time weather data into CoT-enabled systems or applications. 
 
 ## Features
 
@@ -37,10 +37,11 @@ Before running the script, ensure that you have the following dependencies insta
 
 python3 WeatherCOT.py
 
-
 7. The script will retrieve the current weather data, format it into a CoT message, and send it over TCP to the specified server. The sent CoT message will be printed in the console.
 
 8. You can integrate this script into your own applications or systems by modifying the CoT message format or using the retrieved weather data in your desired way.
+
+For Ubuntu the best way to run the script on a repeated timer is using crontab.
 
 ## License
 
