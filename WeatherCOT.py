@@ -7,7 +7,10 @@ latitude = 56.95
 longitude = 24.11
 location_name = "Riga"
 
-# Define the TCP server IP address and port
+# Define the transport protocol (TCP or UDP)
+transport_protocol = "TCP"  # Change to "UDP" if desired
+
+# Define the server IP address and port
 server_ip = "127.0.0.1"
 server_port = 9101
 
@@ -54,7 +57,7 @@ cot_message = """<?xml version="1.0" encoding="UTF-8"?>
     <point lat="{4}" lon="{5}" hae="0.0" ce="9999999.0" le="9999999.0"/>
     <detail>
         <contact callsign="{6} METEO"/>
-        <remarks>Temperature: {7:.1f}\u00b0C, Relative Humidity: {8}%, Dew Point: {9:.1f}\u00b0C, Apparent Temperature: {10:.1f}\u00b0C, Precipitation Probability: {11}%, Precipitation: {12}mm, Rain: {13}mm, Showers: {14}mm, Snowfall: {15}cm, Snow Depth: {16}cm, Cloud Cover: {17}%, Wind Speed: {18} m/s, Wind Direction: {19}\u00b0</remarks>
+        <remarks>Temperature: {7:.1f}\u00b0C, Relative Humidity: {8}%, Dew Point: {9:.1f}\u00b0C, Apparent Temperature: {10:.1f}\u00b0C, Precipitation Probability: {11}%, Precipitation: {12}mm, Rain: {13}mm, Showers: {14}mm, Snowfall: {15}cm, Snow Depth: {16}cm, Cloud Cover: {17}%, Wind Speed: {18}m/s, Wind Direction: {19}\u00b0</remarks>
         <track course="{19}" speed="{18}"/>
         <source type="dataFeed" name="NODE-RED" uid="node-red-123456789"/>
     </detail>
@@ -85,8 +88,15 @@ cot_message = """<?xml version="1.0" encoding="UTF-8"?>
 print("Sent CoT:")
 print(cot_message)
 
-# Send the CoT message via TCP
-sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-sock.connect((server_ip, server_port))
-sock.sendall(cot_message.encode())
-sock.close()
+# Send the CoT message via TCP or UDP
+if transport_protocol == "TCP":
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.connect((server_ip, server_port))
+    sock.sendall(cot_message.encode())
+    sock.close()
+elif transport_protocol == "UDP":
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    sock.sendto(cot_message.encode(), (server_ip, server_port))
+    sock.close()
+else:
+    print("Invalid transport protocol specified. Please choose TCP or UDP.")
