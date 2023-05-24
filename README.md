@@ -8,7 +8,7 @@ WeatherCOT is a Python script that retrieves current weather information from th
 
 - Retrieves current weather data for a specific location using latitude and longitude coordinates.
 - Wind direction is shown using course arrow in ATAK
-- Sends the weather information as a CoT message over TCP.
+- Sends the weather information as a CoT message over TCP / UDP
 - Customizable location, API coordinates, and TCP server settings.
 
 ## Prerequisites
@@ -29,8 +29,8 @@ Before running the script, ensure that you have the following dependencies insta
    - `latitude`: The latitude coordinate of the location for which you want to retrieve the weather information.
    - `longitude`: The longitude coordinate of the location.
    - `location_name`: The name of the location (used in the CoT message).
-   - `server_ip`: The IP address of the COT server ( TCP ONLY )
-   - `server_port`: The port number of the COT server ( TCP ONLY )
+   - `server_ip`: The IP address of the COT server 
+   - `server_port`: The port number of the COT server 
 
 4. Save the changes to the script.
 
